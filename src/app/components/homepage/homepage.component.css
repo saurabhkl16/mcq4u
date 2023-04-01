@@ -1,0 +1,26 @@
+.card {
+    padding: 20px 10px;
+    color: black;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+}
+
+.card-item {
+    padding: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px #7b7373;
+}
+
+/* .card-item h6 {
+    color: red;
+} */
+
+.card-status {
+    color: rgb(26, 33, 233);
+    font-weight: 700;
+}

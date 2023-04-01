@@ -1,0 +1,62 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="portal-main">
+  <div class="main" *ngIf="!hideLoginForm">
+    <div class="header">
+      <h1
+        style="
+          font-family: 'Changa One', cursive;
+        "
+      >
+        MCQ4U
+      </h1>
+    </div>
+    <div class="login-form">
+      <h4>Log in to MCQ4U</h4>
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+        <div class="username">
+          <input
+            id="username"
+            name="username"
+            type="text"
+            [(ngModel)]="username"
+            placeholder="Enter Username"
+            required
+            #userName="ngModel"
+            [ngClass]="{'input-error':loginForm.submitted && userName.errors}"
+          />
+        </div>
+        <div class="password">
+          <input
+            id="password"
+            name="password"
+            type="text"
+            [(ngModel)]="password"
+            placeholder="Enter Password"
+            required
+            #passWord="ngModel"
+            [ngClass]="{'input-error':loginForm.submitted && passWord.errors}"
+          />
+        </div>
+        <div>
+          <button type="submit" class="login-btn btn btn-primary" [disabled]="passWord.errors || userName.errors">Login</button>
+          <button
+            type="button"
+            class="guest-login-btn btn btn-success"
+            [routerLink]="['/homepage']"
+            (click)="showGuestPage()"
+          >
+            Guest Login
+          </button>
+        </div>
+        <div class="bottom">
+          <span class="forgot-pass"><a>Forgot Password ?</a></span>
+          <span class="signup"
+            ><a [routerLink]="['/signup']" (click)="hidePortal()"
+              >Signup</a
+            ></span
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

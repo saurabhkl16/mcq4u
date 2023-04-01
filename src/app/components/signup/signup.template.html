@@ -1,0 +1,97 @@
+<div class="signup-main">
+  <div class="main" *ngIf="!hideSignupForm">
+    <div class="header">
+      <h1>MCQ4U</h1>
+    </div>
+    <div class="login-form">
+      <h4>SIGNUP</h4>
+      <form #signupForm="ngForm" (ngSubmit)="setUserDeatils(signupForm.value)">
+        <div class="email">
+          <input
+            id="email"
+            name="email"
+            type="text"
+            [(ngModel)]="email"
+            placeholder="Enter Your Email"
+            required
+            #emailField="ngModel"
+            [ngClass]="{'input-error':signupForm.submitted && emailField.errors}"
+          />
+        </div>
+        <div class="firstname">
+          <input
+            id="firstname"
+            name="firstname"
+            type="text"
+            [(ngModel)]="firstName"
+            placeholder="Enter Firstname"
+            required
+            #firstname="ngModel"
+            [ngClass]="{'input-error':signupForm.submitted && firstname.errors}"
+          />
+        </div>
+        <div class="lastname">
+          <input
+            id="lastname"
+            name="lastname"
+            type="text"
+            [(ngModel)]="lastName"
+            placeholder="Enter Lastname"
+            required
+            #lastname="ngModel"
+            [ngClass]="{'input-error':signupForm.submitted && lastname.errors}"
+          />
+        </div>
+        <div class="number">
+          <input
+            id="number"
+            name="number"
+            type="text"
+            [(ngModel)]="mobNumber"
+            placeholder="Enter Mobile Number"
+            required
+            #mobileNumber="ngModel"
+            [ngClass]="{'input-error':signupForm.submitted && mobileNumber.errors}"
+          />
+        </div>
+        <div class="password">
+          <input
+            id="password"
+            name="password"
+            type="text"
+            [(ngModel)]="passWord"
+            placeholder="Enter Password"
+            required
+            #password="ngModel"
+            [ngClass]="{'input-error':signupForm.submitted && password.errors}"
+          />
+        </div>
+        <div class="cnf-password">
+          <input
+            id="cnf-password"
+            name="cnf-password"
+            type="text"
+            [(ngModel)]="cnfPassword"
+            placeholder="Enter Password Again"
+            required
+            #confirmPassword="ngModel"
+            [ngClass]="{'input-error':signupForm.submitted && confirmPassword.errors}"
+          />
+        </div>
+        <div>
+          <button type="submit" class="login-btn btn btn-primary">
+            Submit
+          </button>
+        </div>
+        <div class="bottom">
+          <span class="forgot-pass">Forgot Password ?</span>
+          <span class="signup"
+            ><a [routerLink]="['/portal']" (click)="hideSignup()"
+              >Login</a
+            ></span
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

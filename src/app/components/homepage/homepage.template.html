@@ -1,0 +1,27 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="homepage">
+  <div class="header">
+    <header></header>
+  </div>
+  <div class="middle" *ngIf="hideCards">
+    <div class="card">
+      <div class="card-item" *ngFor="let card of quizCard">
+        <img src="{{card.imgurl}}" height="50px" alt="" />
+        <h3>{{card.language}}</h3>
+        <button
+          class="btn btn-dark"
+          (click)="navigateToQuiz(card.status,card.path)"
+          [disabled]="card.status != 'Available'"
+        >
+          Start Quiz
+        </button>
+        <h6 [ngClass]="{'card-status':card.status === 'Available'}">
+          {{card.status}}
+        </h6>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <footer></footer>
+  </div>
+</div>

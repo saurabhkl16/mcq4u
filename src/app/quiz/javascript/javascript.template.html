@@ -1,0 +1,62 @@
+<header></header>
+<div class="time">
+  <h6>Time: 00:00</h6>
+</div>
+<div class="question-card" *ngFor="let questions of jsQuestions; let i = index">
+  <div class="question">
+    <h3>{{questions.question}}</h3>
+  </div>
+  <div class="answers">
+    <label>
+      <input
+        class="options"
+        name="option"
+        type="radio"
+        (click)="getSelectedVal(questions.optionOne)"
+      /><span>{{questions.optionOne}}</span>
+    </label>
+    <label>
+      <input
+        class="options"
+        name="option"
+        type="radio"
+        (click)="getSelectedVal(questions.optionTwo)"
+      /><span>{{questions.optionTwo}}</span>
+    </label>
+    <label>
+      <input
+        class="options"
+        name="option"
+        type="radio"
+        (click)="getSelectedVal(questions.optionThree)"
+      /><span>{{questions.optionThree}}</span>
+    </label>
+    <label>
+      <input
+        class="options"
+        name="option"
+        type="radio"
+        (click)="getSelectedVal(questions.optionFour)"
+      /><span>{{questions.optionFour}}</span>
+    </label>
+  </div>
+  <div class="show-answer">
+    <button id="btn-showanswer" class="btn btn-secondary" (click)="showAnswer(questions.answer)">
+      {{showAnswerBtn}}
+    </button>
+    <div id="wrong-ans-div" class="show-answer-wrong" *ngIf="showWrongAnsDiv">
+      <p style="color: red"><b>Wrong Answer</b></p>
+      <span>Correct Answer is:</span>
+    </div>
+    <div id="correct-ans-div" class="show-answer-correct" *ngIf="showCorrectAnsDiv">
+        <p style="color: green"><b>Correct Answer</b></p>
+        <span>Your Awesome!</span>
+    </div>
+  </div>
+</div>
+<div class="buttons">
+  <button class="btn btn-dark">Back</button>
+  <button class="btn btn-primary">Submit</button>
+  <button class="btn btn-dark" type="button">Next</button>
+</div>
+<footer></footer>
